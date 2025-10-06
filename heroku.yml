@@ -1,0 +1,9 @@
+build:
+  languages:
+    - python
+  image: heroku/python
+  docker:
+    web: Dockerfile
+
+run:
+  web: python -m file_xor

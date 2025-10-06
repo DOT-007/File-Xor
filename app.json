@@ -1,0 +1,67 @@
+{
+  "name": "file_xor",
+  "description": "Quart + Uvicorn web server and Telegram bot for streaming files.",
+  "repository": "https://github.com/Dot-ser/file_xor",
+  "logo": "https://files.catbox.moe/w7s041.png",
+  "keywords": ["quart", "uvicorn", "telegram", "stream"],
+  "buildpacks": [
+    { "url": "heroku/python" }
+  ],
+  "env": {
+    "API_ID": {
+      "description": "Telegram API ID (from my.telegram.org)",
+      "required": true
+    },
+    "API_HASH": {
+      "description": "Telegram API HASH (from my.telegram.org)",
+      "required": true
+    },
+    "BOT_TOKEN": {
+      "description": "Telegram bot token (from BotFather)",
+      "required": true
+    },
+    "FILEDB_CHANNEL": {
+      "description": "Channel ID used as the file DB (e.g. -100123...)",
+      "required": true
+    },
+    "DATABASE_URL": {
+      "description": "Postgres connection URL (optional).",
+      "required": false
+    },
+    "MODE": {
+      "description": "Bot mode (private/public)",
+      "value": "private"
+    },
+    "PORT": {
+      "description": "Port the web server listens on",
+      "value": "8000"
+    },
+    "SUDO": {
+      "description": "Telegram user id(s) allowed to use sudo commands (comma or space separated)",
+      "required": true
+    },
+    "BOT_LOGO": {
+      "description": "URL to the bot logo image (displayed in app listings or web UI)",
+      "required": false
+    },
+    "BOT_NAME": {
+      "description": "Friendly name for the bot (used in web UI)",
+      "required": false
+    },
+    "DOMAIN_URL": {
+      "description": "Public domain or base URL where the web server is reachable (e.g. https://example.com). If deploying to Heroku, defaults to https://${HEROKU_APP_NAME}.herokuapp.com when HEROKU_APP_NAME is set.",
+      "value": "https://${HEROKU_APP_NAME}.herokuapp.com",
+      "required": false
+    }
+  },
+  
+  "formation": [
+    {
+      "type": "web",
+      "quantity": 1
+    }
+  ],
+  "scripts": {
+    "postdeploy": "echo 'Set BOT_TOKEN, API_ID and API_HASH in Heroku config vars before starting the bot.'"
+  }
+}

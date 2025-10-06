@@ -1,0 +1,84 @@
+/* Player specific adjustments to work with site theme */
+
+.player-wrapper { max-width: 1100px; margin: 18px auto; background: #0b0b0b; border-radius: 8px; overflow: hidden; box-shadow: 0 6px 30px rgba(0,0,0,0.6); position: relative; }
+
+/* Prefer aspect-ratio so the video scales without overflowing the controls */
+/* Plyr wrapper controls sizing to avoid conflicts with player internals */
+.player-wrapper .plyr__video-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* keeps common video ratio */
+  /* Cap the player height so it never pushes page beyond viewport.
+     Subtract approximate height used by nav, controls and footer. */
+  max-height: calc(100vh - 180px); /* desktop default */
+  background: black;
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+/* Ensure the actual <video> fills the wrapper and uses object-fit */
+#stream-media, .player-wrapper .plyr__video-wrapper video {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+  object-fit: contain; /* prefer letterboxing over cropping */
+}
+
+/* Keep source tag invisible and not affecting layout */
+#stream-media source { display: none; }
+
+.bottom-controls { display: flex; flex-direction: column; gap: 12px; padding: 14px 18px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); }
+
+.file-name { padding: 6px 8px; background: transparent; display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; align-items: center; color: #ddd; }
+.file-name h4, .file-name p { margin: 0; font-size: 16px; }
+
+.downloadBtn { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin: 0; }
+
+.magnet { display: inline-flex; gap: 8px; align-items: center; padding: 10px 14px; background: rgba(255,255,255,0.04); color: #fff; border: none; border-radius: 8px; text-decoration: none; cursor: pointer; font-family: inherit; transition: background 0.15s, transform 0.08s; }
+.magnet img { height: 20px; }
+.magnet:hover { background: rgba(255,255,255,0.12); transform: translateY(-2px); }
+
+.plyr__video-wrapper .plyr-download-button, .plyr__video-wrapper .plyr-share-button {
+  position: absolute; width: 38px; height: 38px; background-color: rgba(0,0,0,0.6); border-radius: 50%; text-align: center; line-height: 38px; color: white; z-index: 1000; cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+.plyr__video-wrapper .plyr-download-button { top: 12px; left: 12px; }
+.plyr__video-wrapper .plyr-share-button { top: 60px; left: 12px; }
+.plyr__video-wrapper .plyr-download-button:hover, .plyr__video-wrapper .plyr-share-button:hover { background-color: rgba(255,255,255,0.12); color: #fff; }
+
+footer { text-align: center; padding: 12px 0; color: #ddd; }
+
+@media (max-width: 768px) {
+  #stream-media { aspect-ratio: 4 / 3; }
+  .player-wrapper { margin: 10px; }
+  .file-name h4, .file-name p { font-size: 14px; }
+  .plyr__video-wrapper .plyr-download-button, .plyr__video-wrapper .plyr-share-button { width: 34px; height: 34px; line-height: 34px; }
+}
+
+/* Enhanced mobile responsiveness for controls and layout */
+@media (max-width: 480px) {
+  .player-wrapper { margin: 8px; border-radius: 6px; }
+  .bottom-controls { padding: 10px 12px; gap: 8px; }
+
+  /* Stack download buttons and make them easy to tap */
+  .downloadBtn { display: flex; flex-direction: column; gap: 8px; align-items: stretch; }
+  .downloadBtn .magnet { width: 100%; justify-content: center; padding: 12px; font-size: 15px; }
+  .downloadBtn .magnet img { height: 18px; }
+
+  /* File name and size in a vertical layout */
+  .file-name { flex-direction: column; gap: 6px; text-align: center; }
+  .file-name h4 { font-size: 13px; }
+  .file-name p { font-size: 13px; }
+
+  /* Shrink footer and navbar on small screens */
+  .nav_bar { padding: 8px 10px; }
+  .nav_bar h1 { font-size: 18px; }
+  footer { padding: 8px 0; font-size: 13px; }
+
+  /* Ensure overlay buttons don't cover important controls */
+  .plyr__video-wrapper .plyr-download-button { top: 8px; left: 8px; }
+  .plyr__video-wrapper .plyr-share-button { top: 52px; left: 8px; }
+
+  /* On very small viewports allow the player to use more vertical space
+     but still keep a margin for controls and chrome */
+  .player-wrapper .plyr__video-wrapper { max-height: calc(100vh - 120px); }
+}

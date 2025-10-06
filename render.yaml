@@ -1,0 +1,13 @@
+# Render service definition
+services:
+  - type: web
+    name: file_xor-web
+    env: docker
+    plan: free
+    dockerfilePath: Dockerfile
+    envVars:
+      - key: PORT
+        value: "8000"
+      - key: MODE
+        value: "production"
+

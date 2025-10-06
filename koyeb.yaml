@@ -1,0 +1,20 @@
+# Koyeb application manifest
+services:
+  - name: file_xor-web
+    image: # If you push to a registry, set image: owner/repo:tag
+      build:
+        context: .
+        dockerfile: Dockerfile
+    internal_port: 8000
+    env:
+      - name: PORT
+        value: "8000"
+      - name: MODE
+        value: "production"
+    resources:
+      cpu: 1
+      memory: 512Mi
+    routes:
+      - type: http
+        source: /
+    start_command: python -m file_xor

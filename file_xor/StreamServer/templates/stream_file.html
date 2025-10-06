@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>file_xor - Player</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Frame-Options" content="deny">
+  <link rel="icon" href="{{ url_for('main.favicon') }}" type="image/x-icon">
+
+  <!-- Core styles -->
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/home_page.css') }}">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <script src="https://cdn.plyr.io/3.7.8/plyr.polyfilled.js"></script>
+
+    <meta name="description" content="Stream media directly from Telegram with file_xor. Simple, fast, and secure.">
+    <meta property="og:title" content="file_xor – Stream Telegram Media Instantly">
+    <meta property="og:description" content="Stream media directly from Telegram with file_xor. Free Downloads, no delay.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="https://files.catbox.moe/x7bhxz.jpg">
+
+  </head>
+
+  <body>
+  <div class="nav_bar">
+    <h1>FILE<span>XOR</span></h1>
+  </div>
+
+    <div class="player-wrapper">
+      <video id="stream-media" controls preload="auto">
+        <source src="" type="">
+        <p class="vjs-no-js">
+          To view this video please enable JavaScript, and consider upgrading to a web browser that supports HTML5 video
+        </p>
+      </video>
+
+      <div class="bottom-controls" role="group" aria-label="Player actions">
+        <div class="downloadBtn">
+          <button class="magnet" id="download-btn" title="Download">
+            <img src="https://i.ibb.co/RjzYttX/dl.png" alt="download">Download
+          </button>
+
+          <button class="magnet" id="copy-link-btn" title="Copy stream link">
+            <img src="https://i.ibb.co/CM4Y586/link.png" alt="copy link">Copy Link
+          </button>
+
+          <button class="magnet" id="vlc-btn" title="Open in VLC">
+            <img src="https://i.ibb.co/px6fQs1/vlc.png" alt="vlc">Open in VLC
+          </button>
+
+          <button class="magnet" id="mx-btn" title="Open in MX Player">
+            <img src="https://i.ibb.co/41WvtQ3/mx.png" alt="mx">Open in MX
+          </button>
+
+          <button class="magnet" id="nplayer-btn" title="Open in nPlayer">
+            <img src="https://i.ibb.co/Hd2dS4t/nPlayer.png" alt="nplayer">Open in nPlayer
+          </button>
+        </div>
+
+        <div class="file-name" aria-hidden="false">
+          <h4>File:</h4>
+          <p id="file-name-text">{{ file_name or 'Unknown' }}</p>
+          <h4>Size:</h4>
+          <p id="file-size-text">{{ file_size or '' }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="error-message"></div>
+
+    <footer>
+      &copy; 2025 Dotsermodz. All rights reserved.
+    </footer>
+
+    <script>
+      // Expose server-provided mediaLink to the client script
+      window.mediaLink = {{ mediaLink|tojson }};
+    </script>
+  <script src="{{ url_for('static', filename='js/stream_file.js') }}"></script>
+  </body>
+</html>

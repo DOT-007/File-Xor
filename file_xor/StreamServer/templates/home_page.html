@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>file_xor - Home page</title>
+    <link rel="icon" href="{{ url_for('main.favicon') }}" type="image/x-icon">
+    <meta name="description" content="FILEXOR is a Telegram-based file streaming and download bot that serves files directly from Telegram for immediate streaming or secure downloads without pre-downloading files to local disk. Fast, efficient, and easy to deploy.">
+    <meta property="og:title" content="file_xor – Stream Telegram Media Instantly">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home_page.css') }}">
+</head>
+<body>
+    <div class="nav_bar">
+        <h1>FILE<span>XOR</span></h1>
+        <div class="nav_links">
+            <a href="https://github.com/Dot-ser/file-xor" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://github.com/Dot-ser/file-xor/blob/master/README.md" target="_blank" rel="noopener noreferrer">Docs</a>
+            <a href="#deploy">Get Started</a>
+        </div>
+    </div>
+    <div class="main">
+        <h1>Welcome to FILE<span>XOR</span></h1>
+        <p>Your one-stop solution for all your streaming needs.</p>
+    <div class="grid">
+    <div class="bot-desc container">
+            <h2>About this bot</h2>
+            <p>
+                FILEXOR is a Telegram-based file streaming and download bot designed to avoid download delays by
+                streaming files directly from Telegram without saving them to local disk. It provides a simple web
+                interface for browsing and efficient chunked playback, plus utilities for server health, status,
+                and quick admin actions. The application is easy to deploy — pick one of the providers below
+                and follow the prompts.
+            </p>
+            <ul>
+                <li>See <code>config.env.example</code> for required environment variables.</li>
+                <li>Use the included plugins for status, reboot, and quick links.</li>
+                <li>Prefer self-hosting on a VPS? See <code>DEPLOY.md</code> for step-by-step instructions.</li>
+            </ul>
+    </div>
+
+        <div id="deploy" class="deploy-buttons container">
+            <h3>Deploy to your platform</h3>
+            <p class="small">Click a provider to open the deploy flow (opens in a new tab).</p>
+            <div class="buttons">
+                <a class="deploy-btn heroku" href="https://heroku.com/deploy?template=https://github.com/Dot-ser/file-xor" target="_blank" rel="noopener noreferrer">⚡ Deploy to Heroku</a>
+                <a class="deploy-btn render" href="https://render.com/deploy?repo=https://github.com/Dot-ser/file-xor" target="_blank" rel="noopener noreferrer">☁️ Deploy to Render</a>
+                <a class="deploy-btn koyeb" href="https://app.koyeb.com/deploy?from=https://github.com/Dot-ser/file-xor" target="_blank" rel="noopener noreferrer">🚀 Deploy to Koyeb</a>
+                <a class="deploy-btn vps" href="https://github.com/Dot-ser/file-xor/blob/master/DEPLOY.md" target="_blank" rel="noopener noreferrer">🖥️ Deploy on VPS</a>
+                <!-- secondary actions -->
+                <a class="secondary-btn" href="https://raw.githubusercontent.com/Dot-ser/file-xor/master/config.env.example" target="_blank" rel="noopener noreferrer">📄 Download config</a>
+                <a class="secondary-btn" href="https://github.com/Dot-ser/file-xor/blob/master/README.md" target="_blank" rel="noopener noreferrer">📘 View README</a>
+            </div>
+            <p class="note">Tip: make sure you set the required environment variables (see <code>config.env.example</code>) before launching.</p>
+    </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 file_xor. All rights reserved.</p>
+        </footer>
+</body>
+</html>

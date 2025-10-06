@@ -1,0 +1,8 @@
+pyrofork
+quart
+speedtest-cli
+uvicorn
+python-dotenv
+psutil
+asyncpg
+tgcrypto
