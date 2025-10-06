@@ -1,12 +1,12 @@
 # File_Xor
 - Streams files directly from Telegram without saving them locally, avoiding download/seek delays and allowing immediate streaming playback.
 
-[![Stars](https://img.shields.io/github/stars/Dot-ser/file_xor?style=social)](https://github.com/Dot-ser/file_xor/stargazers)
-[![Forks](https://img.shields.io/github/forks/Dot-ser/file_xor?style=social)](https://github.com/Dot-ser/file_xor/network/members)
+[![Stars](https://img.shields.io/github/stars/Dot-ser/file_xor?style=social)](https://github.com/Dot-ser/File-Xor/stargazers)
+[![Forks](https://img.shields.io/github/forks/Dot-ser/file_xor?style=social)](https://github.com/Dot-ser/File-Xor/network/members)
 
 ![alt text](https://files.catbox.moe/f11xqf.jpg)
 
-If you find file_xor helpful, please consider giving it a [⭐ star](https://github.com/Dot-ser/file_xor/stargazers) and [forking](https://github.com/Dot-ser/file_xor/fork) the repository — it really helps the project grow!
+If you find file_xor helpful, please consider giving it a [⭐ star](https://github.com/Dot-ser/File-Xor/stargazers) and [forking](https://github.com/Dot-ser/File-Xor/fork) the repository — it really helps the project grow!
 
 Fast Telegram-based file streaming and download bot + web server that streams files directly from Telegram without pre-downloading them to local disk, reducing download delays and enabling immediate playback.
 
