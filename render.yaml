@@ -6,8 +6,22 @@ services:
     plan: free
     dockerfilePath: Dockerfile
     envVars:
-      - key: PORT
-        value: "8000"
+      - key: API_HASH
+        value: "your_api_hash"
+      - key: BOT_TOKEN
+        value: "your_bot_token"
+      - key: API_ID
+        value: "your_api_id"
+      - key: FILEDB_CHANNEL
+        value: "your_filedb_id"
+      - key: DOMAIN_URL
+        value: "http://localhost:8000"
+      - key: SUDO
+        value: "0"
+      - key: DATABASE_URL
+        value: ""
       - key: MODE
-        value: "production"
+        value: "private"
+      - key: LANG
+        value: "en"
 
