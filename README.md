@@ -41,15 +41,22 @@ cp config.env.example config.env
 ```
 
 3. Run the app:
-
+```
 py -m file_xor
 ```
 
 The web server will use `PORT` from environment (default 8000 in code). The bot will also run within the same process.
 
-## Deploying on Servers
 
-[![Deploy now](https://files.catbox.moe/ahm6e8.svg)]()
+
+## 🚀 Deploy File-XOR Bot on Servers
+
+Easily deploy using your preferred platform:
+
+[![Deploy to Heroku](https://img.shields.io/badge/⚡_Deploy_to_Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white)](https://heroku.com/deploy?template=https://github.com/Dot-ser/file-xor)
+[![Deploy to Render](https://img.shields.io/badge/☁️_Deploy_to_Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://render.com/deploy?repo=https://github.com/Dot-ser/file-xor)
+[![Deploy to Koyeb](https://img.shields.io/badge/🚀_Deploy_to_Koyeb-121212?style=for-the-badge&logo=koyeb&logoColor=white)](https://app.koyeb.com/deploy?from=https://github.com/Dot-ser/file-xor)
+
 
 
 
