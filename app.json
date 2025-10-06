@@ -49,8 +49,8 @@
       "required": false
     },
     "DOMAIN_URL": {
-      "description": "Public domain or base URL where the web server is reachable (e.g. https://example.com). If deploying to Heroku, defaults to https://${HEROKU_APP_NAME}.herokuapp.com when HEROKU_APP_NAME is set.",
-      "value": "https://${HEROKU_APP_NAME}.herokuapp.com",
+      "description": "Public domain or base URL where the web server is reachable (e.g. https://example.com). If deploying to Heroku, defaults to the Heroku app URL.",
+      "value": "${HEROKU_APP_URL}",
       "required": false
     }
   },

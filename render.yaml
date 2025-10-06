@@ -15,7 +15,7 @@ services:
       - key: FILEDB_CHANNEL
         value: "your_filedb_id"
       - key: DOMAIN_URL
-        value: "http://localhost:8000"
+        value: ${RENDER_EXTERNAL_URL}
       - key: SUDO
         value: "0"
       - key: DATABASE_URL
