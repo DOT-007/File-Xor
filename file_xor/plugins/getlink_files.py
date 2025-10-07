@@ -30,7 +30,7 @@ async def handle_user_file(_, msg: Message):
 
     file_id = file.id
     # Normalize base URL: ensure scheme and no trailing slash
-    base = normalize_base_url(ServerConfig.DOMAIN_URL)
+    base = normalize_base_url(ServerConfig.get_domain_url())
 
     dl_link = f"{base}/dl/{file_id}?code={secret_code}" if base else ""
     stream_link = f"{base}/stream/{file_id}?code={secret_code}" if base else ""

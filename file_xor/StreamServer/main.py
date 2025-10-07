@@ -5,6 +5,8 @@ from re import match as re_match, search as re_search
 from .WebErrorHandling import abort
 from file_xor import roxe
 from config import TgConfig, ServerConfig
+from file_xor.lib.runtime_utils import save_host_url
+from file_xor.lib.url_utils import normalize_base_url
 from file_xor.lib._StreamServer import get_message, get_file_properties
 
 bp = Blueprint('main', __name__)
@@ -12,6 +14,13 @@ bp = Blueprint('main', __name__)
 
 @bp.route("/")
 async def index():
+    # If no DOMAIN_URL is configured, persist current host URL for fallback
+    if not ServerConfig.DOMAIN_URL:
+        try:
+            # request.host_url typically includes trailing slash and scheme
+            save_host_url(request.host_url)
+        except Exception:
+            pass
     return await render_template('home_page.html')
 
 
@@ -26,7 +35,9 @@ async def favicon():
 
 @bp.route('/alive')
 async def ping():
-    return 'i ALIVE'
+    return 'Wrking gud'
+
+
 @bp.route('/dl/<int:file_id>')
 async def transmit_file(file_id):
     file = await get_message(file_id) or abort(404)
@@ -106,4 +117,5 @@ async def transmit_file(file_id):
 @bp.route('/stream/<int:file_id>')
 async def stream_file(file_id):
     code = request.args.get('code') or abort(401)
-    return await render_template('stream_file.html', mediaLink=f'{ServerConfig.DOMAIN_URL}/dl/{file_id}?code={code}')
+    base = normalize_base_url(ServerConfig.get_domain_url())
+    return await render_template('stream_file.html', mediaLink=f'{base}/dl/{file_id}?code={code}')

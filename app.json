@@ -47,11 +47,6 @@
     "BOT_NAME": {
       "description": "Friendly name for the bot (used in web UI)",
       "required": false
-    },
-    "DOMAIN_URL": {
-      "description": "Public domain or base URL where the web server is reachable (e.g. https://example.com). If deploying to Heroku, defaults to the Heroku app URL.",
-      "value": "${HEROKU_APP_URL}",
-      "required": false
     }
   },
   
