@@ -13,7 +13,7 @@ async def _help_back_cb(_, query: CallbackQuery):
     buttons = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("📢 Updates", url="https://t.me/YourChannel"),
+                InlineKeyboardButton("Script 👨🏻‍💻", url="https://github.com/Dot-ser/File-Xor"),
                 InlineKeyboardButton("👨‍💻 Developer", url="https://github.com/Dot-ser"),
             ],
             [InlineKeyboardButton("Menu❤️‍🩹", callback_data="show_help")],
@@ -41,7 +41,7 @@ async def _show_help_cb(_, query: CallbackQuery):
     buttons = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("📢 Updates", url="https://t.me/YourChannel"),
+                InlineKeyboardButton("Script 👨🏻‍💻", url="https://github.com/Dot-ser/File-Xor"),
                 InlineKeyboardButton("👨‍💻 Developer", url="https://github.com/Dot-ser"),
             ],
             [InlineKeyboardButton("🔙 Back", callback_data="start_back")],

@@ -22,7 +22,7 @@ async def start_command(_, message: Message):
     # Base URL buttons shown in both start and help
     base_buttons = [
         [
-            InlineKeyboardButton("📢 Updates", url="https://t.me/YourChannel"),
+            InlineKeyboardButton("Script 👨🏻‍💻", url="https://github.com/Dot-ser/File-Xor"),
             InlineKeyboardButton("👨‍💻 Developer", url="https://github.com/Dot-ser"),
         ]
     ]
