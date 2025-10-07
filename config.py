@@ -1,5 +1,6 @@
 from dotenv import load_dotenv
 import os
+from file_xor.lib.runtime_utils import load_host_url
 
 # Load dotenv and override any existing environment variables so
 # values in config.env (like LANG) take precedence over the system env.
@@ -16,13 +17,25 @@ class TgConfig:
 
 class ServerConfig:
     # Server related configurations
-    DOMAIN_URL = os.environ.get("DOMAIN_URL", "http://localhost:8000")
+    DOMAIN_URL = os.environ.get("DOMAIN_URL", "")
     DOWNLOAD_PATH = os.environ.get("DOWNLOAD_PATH", "./downloads")
     MAX_FILE_SIZE = int(os.environ.get("MAX_FILE_SIZE", "2048"))  # in MB
     GEN_SECRET_KEY_LENGTH = int(os.environ.get("GEN_SECRET_KEY_LENGTH", "8"))
     CHUNK_SIZE = int(os.environ.get("CHUNK_SIZE", "1"))  # in MB
     BIND_ADDRESS = os.environ.get("BIND_ADDRESS", "0.0.0.0")
     PORT = int(os.environ.get("PORT", "8000"))
+
+    @classmethod
+    def get_domain_url(cls) -> str:
+        """Return configured DOMAIN_URL or fallback to runtime HOST_URL.
+
+        Ensures no trailing slash and has scheme via URL utils where used.
+        """
+        if cls.DOMAIN_URL and str(cls.DOMAIN_URL).strip():
+            return cls.DOMAIN_URL.strip()
+        # Fallback from runtime.py if available
+        host = load_host_url()
+        return host or ""
 
 class BotInfoConfig:
     # Bot related configurations    
