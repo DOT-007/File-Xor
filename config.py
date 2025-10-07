@@ -39,8 +39,8 @@ class ServerConfig:
 
 class BotInfoConfig:
     # Bot related configurations    
-    BOT_NAME = os.environ.get("BOT_NAME", "file_xor")
-    BOT_LOGO = os.environ.get("BOT_LOGO", "https://files.catbox.moe/x7bhxz.jpg")
+    BOT_NAME = os.environ.get("BOT_NAME", "FILE XOR")
+    BOT_LOGO = os.environ.get("BOT_LOGO", "https://files.catbox.moe/8cl88o.jpg")
     OWNER_ID = int(os.environ.get("OWNER_ID", "123456789"))
     SUDO = list(map(int, os.environ.get("SUDO", "0").split(',')))
     DATABASE_URL = os.environ.get("DATABASE_URL", "")
