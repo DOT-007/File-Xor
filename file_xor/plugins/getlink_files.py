@@ -7,14 +7,23 @@ from secrets import token_hex
 from file_xor import roxe
 from config import TgConfig, ServerConfig
 from file_xor.lang import msg_translate , lang
-from file_xor.lib.isVerify import isPrivate, isBanned
-
+from file_xor.lib.isVerify import isBanned
 
 @roxe.on_message(filters.document | filters.video | filters.video_note | filters.audio | filters.voice | filters.photo)
-@isPrivate
 @isBanned
 async def handle_user_file(_, msg: Message):
-    sender_id = msg.from_user.id
+    # allow private chats, groups and supergroups
+    if msg.chat.type not in ("private", "group", "supergroup"):
+        return
+
+    # get sender id more robustly (channels/anonymous admins may not have from_user)
+    if getattr(msg, "from_user", None) and msg.from_user:
+        sender_id = msg.from_user.id
+    elif getattr(msg, "sender_chat", None) and msg.sender_chat:
+        sender_id = msg.sender_chat.id
+    else:
+        sender_id = msg.chat.id
+
     secret_code = token_hex(ServerConfig.GEN_SECRET_KEY_LENGTH)
 
     try:
