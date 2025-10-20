@@ -10,10 +10,7 @@ from file_xor.lang import msg_translate , lang
 from file_xor.lib.isVerify import isPrivate, isBanned
 
 
-@roxe.on_message(
-    filters.private
-    & (filters.document | filters.video | filters.video_note | filters.audio | filters.voice | filters.photo)
-)
+@roxe.on_message(filters.document | filters.video | filters.video_note | filters.audio | filters.voice | filters.photo)
 @isPrivate
 @isBanned
 async def handle_user_file(_, msg: Message):
